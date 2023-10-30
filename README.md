@@ -2,7 +2,7 @@
 
 Clone the repo
 ```bash
-git clone https://github.com/wpsimon09/threeJstest.git
+git clone [https://github.com/wpsimon09/threeJstest.git](https://github.com/wpsimon09/HangoutSafari.git)
 ```
 
 CD to the repo
