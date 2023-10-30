@@ -1,5 +1,5 @@
 {
-	"name": "ms-svelte-tailwindcss-boilerplate",
+	"name": "Hangout Safari",
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
@@ -10,15 +10,20 @@
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch",
 		"test:unit": "vitest",
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
-		"format": "prettier --plugin-search-dir . --write ."
+		"format": "prettier --plugin-search-dir . --write .",
+		"test": "jest src",
+		"test:watch": "npm run test -- --watch"
+	
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^2.0.0",
 		"@sveltejs/kit": "^1.5.0",
+		"@testing-library/svelte": "^4.0.4",
 		"autoprefixer": "^10.4.14",
 		"eslint": "^8.28.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-svelte3": "^4.0.0",
+		"jest": "^29.7.0",
 		"postcss": "^8.4.21",
 		"prettier": "^2.8.0",
 		"prettier-plugin-svelte": "^2.8.1",
