@@ -1,4 +1,4 @@
-name: GitHub Actions Demo
+name: Build application
 run-name: ${{ github.actor }} is building the application 🏗️
 on: [push]
 jobs:
