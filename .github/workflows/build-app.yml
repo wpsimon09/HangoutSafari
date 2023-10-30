@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Instaling dependencies ⏬"
-      - run: echo npm install
+      - run: npm install
       - run: echo "Building applicatin 👷"
       - run: npm run build
       - run: echo "Building is complete ✅"
