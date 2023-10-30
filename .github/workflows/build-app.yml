@@ -1,0 +1,11 @@
+name: GitHub Actions Demo
+run-name: ${{ github.actor }} is building the application 🏗️
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Building applicatin 👷"
+      - run: npm run build
+      - run: echo "Building is complete ✅"
+    
