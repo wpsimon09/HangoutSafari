@@ -13,7 +13,6 @@
 		"format": "prettier --plugin-search-dir . --write .",
 		"test": "jest src",
 		"test:watch": "npm run test -- --watch"
-	
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^2.0.0",
