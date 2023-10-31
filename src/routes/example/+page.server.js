@@ -1,5 +1,5 @@
-console.log('runs on server');
+console.log("runs on server");
 
 export const load = async () => {
-	return { message: 'data from the server' };
+  return { message: "data from the server" };
 };

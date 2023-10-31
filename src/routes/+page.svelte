@@ -1,9 +1,8 @@
 <script>
-	import Example from '$lib/components/Example.svelte';
-
+  import Example from "$lib/components/Example.svelte";
 </script>
 
-<Example/>
+<Example />
 
 <style>
 </style>

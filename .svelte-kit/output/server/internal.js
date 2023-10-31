@@ -5,5 +5,5 @@ export {
   d as set_assets,
   e as set_building,
   s as set_private_env,
-  c as set_public_env
+  c as set_public_env,
 };

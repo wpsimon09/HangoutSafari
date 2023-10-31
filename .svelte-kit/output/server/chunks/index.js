@@ -1,5 +1,4 @@
-function noop() {
-}
+function noop() {}
 function run(fn) {
   return fn();
 }
@@ -10,7 +9,9 @@ function run_all(fns) {
   fns.forEach(run);
 }
 function safe_not_equal(a, b) {
-  return a != a ? b == b : a !== b || (a && typeof a === "object" || typeof a === "function");
+  return a != a
+    ? b == b
+    : a !== b || (a && typeof a === "object") || typeof a === "function";
 }
 function subscribe(store, ...callbacks) {
   if (store == null) {
@@ -46,19 +47,22 @@ function escape(value, is_attr = false) {
   while (pattern.test(str)) {
     const i = pattern.lastIndex - 1;
     const ch = str[i];
-    escaped += str.substring(last, i) + (ch === "&" ? "&amp;" : ch === '"' ? "&quot;" : "&lt;");
+    escaped +=
+      str.substring(last, i) +
+      (ch === "&" ? "&amp;" : ch === '"' ? "&quot;" : "&lt;");
     last = i + 1;
   }
   return escaped + str.substring(last);
 }
 const missing_component = {
-  $$render: () => ""
+  $$render: () => "",
 };
 function validate_component(component, name) {
   if (!component || !component.$$render) {
-    if (name === "svelte:component")
-      name += " this={...}";
-    throw new Error(`<${name}> is not a valid SSR component. You may need to review your build config to ensure that dependencies are compiled, rather than imported as pre-compiled modules. Otherwise you may need to fix a <${name}>.`);
+    if (name === "svelte:component") name += " this={...}";
+    throw new Error(
+      `<${name}> is not a valid SSR component. You may need to review your build config to ensure that dependencies are compiled, rather than imported as pre-compiled modules. Otherwise you may need to fix a <${name}>.`
+    );
   }
   return component;
 }
@@ -68,12 +72,14 @@ function create_ssr_component(fn) {
     const parent_component = current_component;
     const $$ = {
       on_destroy,
-      context: new Map(context || (parent_component ? parent_component.$$.context : [])),
+      context: new Map(
+        context || (parent_component ? parent_component.$$.context : [])
+      ),
       // these will be immediately discarded
       on_mount: [],
       before_update: [],
       after_update: [],
-      callbacks: blank_object()
+      callbacks: blank_object(),
     };
     set_current_component({ $$ });
     const html = fn(result, props, bindings, slots);
@@ -81,7 +87,10 @@ function create_ssr_component(fn) {
     return html;
   }
   return {
-    render: (props = {}, { $$slots = {}, context = /* @__PURE__ */ new Map() } = {}) => {
+    render: (
+      props = {},
+      { $$slots = {}, context = /* @__PURE__ */ new Map() } = {}
+    ) => {
       on_destroy = [];
       const result = { title: "", head: "", css: /* @__PURE__ */ new Set() };
       const html = $$render(result, props, {}, $$slots, context);
@@ -89,14 +98,16 @@ function create_ssr_component(fn) {
       return {
         html,
         css: {
-          code: Array.from(result.css).map((css) => css.code).join("\n"),
-          map: null
+          code: Array.from(result.css)
+            .map((css) => css.code)
+            .join("\n"),
+          map: null,
           // TODO
         },
-        head: result.title + result.head
+        head: result.title + result.head,
       };
     },
-    $$render
+    $$render,
   };
 }
 export {
@@ -108,5 +119,5 @@ export {
   missing_component as m,
   noop as n,
   safe_not_equal as s,
-  validate_component as v
+  validate_component as v,
 };
