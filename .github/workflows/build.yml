@@ -15,4 +15,7 @@ jobs:
       - run: echo "Building applicatin 👷"
       - run: npm run build --if-present
       - run: echo "Building is complete ✅"
+      - run: echo "Starting tests 🧪"
+      - run: npm run test
+      - run: echo "Tests have passed ✅"
     
